@@ -3,6 +3,7 @@ import './App.css';
 import Clock from './Clock';
 import ToggleButton from "./ToggleButton";
 import Login from './Login'
+import Lists from './Lists'
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Clock />
       <ToggleButton />
       <Login />
+      <Lists numbers={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]} />
     </div>
   );
 }
