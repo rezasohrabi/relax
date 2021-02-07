@@ -4,6 +4,7 @@ import Clock from './Clock';
 import ToggleButton from "./ToggleButton";
 import Login from './Login'
 import Lists from './Lists'
+import Form from './Form'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <ToggleButton />
       <Login />
       <Lists numbers={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]} />
+      <Form />
     </div>
   );
 }
