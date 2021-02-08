@@ -6,10 +6,10 @@ export default class ProductTable extends React.Component {
     render() {
         const rows = [];
         let lastCategory = null;
-        const filterText = this.props.filterText;
+        const filterText = this.props.filterText.toLowerCase();
         const inStockOnly = this.props.inStockOnly;
         this.props.products.forEach((product) => {
-            if(product.name.indexOf(filterText) === -1){
+            if(product.name.toLowerCase().indexOf(filterText) === -1){
                 return;
             }
             if(inStockOnly && !product.stocked){

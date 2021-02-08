@@ -12,7 +12,7 @@ export default class SearchBar extends React.Component {
     }
 
     handleInStockChange(e) {
-        this.props.onInStockOChange(e.target.value);
+        this.props.onInStockChange(e.target.checked);
     }
 
     render() {
