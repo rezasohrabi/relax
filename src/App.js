@@ -5,6 +5,7 @@ import ToggleButton from "./ToggleButton";
 import Login from './Login'
 import Lists from './Lists'
 import Form from './Form'
+import Calculator from './Calculator';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Login />
       <Lists numbers={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]} />
       <Form />
+      <Calculator />
     </div>
   );
 }
