@@ -17,6 +17,7 @@ export default class Login extends React.Component {
     }
 
     render() {
+        if(this.state.isLoggedIn) throw new Error('I crashed!')
         // inline if-else statement
         const button = this.state.isLoggedIn ? 
          <button onClick={this.handleLogout} >Logout</button> :

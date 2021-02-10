@@ -39,6 +39,7 @@ export default class Form extends React.Component {
             backgroundColor: theme.backgroundColor,
             color: theme.color
         }
+        if (this.state.username === 'error') throw new Error('I crashed!');
         return (
             <form onSubmit={this.handleSubmit} style={style} >
                 <label>
