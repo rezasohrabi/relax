@@ -1,6 +1,9 @@
 import './App.css';
 import FilterableProductTable from './dataTable/FilterableProductTable'
 import React, {Suspense} from 'react'
+import ThemeContext from './context/ThemeContext'
+import AppTheme from './context/AppTheme'
+import Theme from './context/Theme';
 const LazyLoad = React.lazy(()=> import('./LazyLoad'))
 
 const PRODUCTS = [
@@ -12,15 +15,39 @@ const PRODUCTS = [
   {category: 'Electronics', price: '$199.99', stocked: true, name: 'Nexus 7'}
 ];
 
-function App() {
-  return (
-    <div className="App">
-      <Suspense fallback={<div style={{color: '#fff', backgroundColor: 'red'}}>loading...</div>} >
-        <LazyLoad />
-      </Suspense>
-      <FilterableProductTable products={PRODUCTS} />
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.toggleTheme = () => {
+      console.log('toggle theme');
+      this.setState(state => ({
+        theme: 
+          state.theme === AppTheme.light
+          ? AppTheme.dark
+          : AppTheme.light,
+      }))
+    }
+
+    this.state = {
+      theme: AppTheme.light,
+      toggleTheme: this.toggleTheme,
+    }
+  }
+
+  render(){
+    return (
+      <div className="App">
+        <ThemeContext.Provider value={this.state}>
+        <Theme />
+        <Suspense fallback={<div style={{color: '#fff', backgroundColor: 'red'}}>loading...</div>} >
+          <LazyLoad />
+        </Suspense>
+        <FilterableProductTable products={PRODUCTS} />
+        </ThemeContext.Provider>
+      </div>
+    );
+  }
 }
 
 export default App;

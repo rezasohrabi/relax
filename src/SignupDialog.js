@@ -1,4 +1,5 @@
 import React from 'react'
+import ThemeContext from './context/ThemeContext'
 
 export default class SignupDialog extends React.Component {
     constructor(props) {
@@ -48,12 +49,15 @@ class Dialog extends React.Component {
 }
 
 class FancyBorder extends React.Component {
+    static contextType = ThemeContext;
     render() {
+        const theme = this.context.theme;
         const style = {
-            border: '1px solid #999',
+            border: '1px solid ' + theme.color,
             display: 'flex',
             flexDirection: 'column',
-            backgroundColor: '#888'
+            backgroundColor: theme.backgroundColor,
+            color: theme.color
         }
         return (
             <div style={style}>

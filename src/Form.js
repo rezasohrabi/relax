@@ -1,5 +1,6 @@
 import { findByLabelText } from '@testing-library/react';
 import React from 'react'
+import ThemeContext from './context/ThemeContext';
 
 export default class Form extends React.Component {
     constructor(props) {
@@ -30,11 +31,13 @@ export default class Form extends React.Component {
     }
 
     render() {
+        const theme = this.context.theme;
         const style = {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-around',
-            backgroundColor: '#eee'
+            backgroundColor: theme.backgroundColor,
+            color: theme.color
         }
         return (
             <form onSubmit={this.handleSubmit} style={style} >
@@ -69,3 +72,4 @@ export default class Form extends React.Component {
         )
     }
 }
+Form.contextType = ThemeContext;

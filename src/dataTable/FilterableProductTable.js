@@ -1,6 +1,7 @@
 import React from 'react'
 import SearchInput from './SearchBar'
 import ProductTable from './ProductTable'
+import ThemeContext from '../context/ThemeContext'
 
 export default class FilterableProductTable extends React.Component {
     constructor(props) {
@@ -22,8 +23,9 @@ export default class FilterableProductTable extends React.Component {
     }
     
     render() {
+        const theme = this.context.theme;
         return (
-            <section style={{margin: '20px', backgroundColor: '#efefef'}}>
+            <section style={{margin: '20px', backgroundColor: theme.backgroundColor, color: theme.color}}>
             <SearchInput 
             filterText={this.state.filterText}
             inStockOnly={this.state.inStockOnly}
@@ -37,3 +39,4 @@ export default class FilterableProductTable extends React.Component {
         )
     }
 }
+FilterableProductTable.contextType = ThemeContext;
