@@ -4,6 +4,7 @@ import React, {Suspense} from 'react'
 import ThemeContext from './context/ThemeContext'
 import AppTheme from './context/AppTheme'
 import Theme from './context/Theme';
+import RefWrapper from './refs/RefWrapper';
 const LazyLoad = React.lazy(()=> import('./LazyLoad'))
 
 const PRODUCTS = [
@@ -44,6 +45,7 @@ class App extends React.Component {
           <LazyLoad />
         </Suspense>
         <FilterableProductTable products={PRODUCTS} />
+        <RefWrapper />
         </ThemeContext.Provider>
       </div>
     );
