@@ -1,8 +1,9 @@
 import React from 'react'
+import WithBoundaryHandling from './HOC/WithBoundaryHandling';
 
-export default class ToggleButton extends React.Component {
-    constructor(args) {
-        super(args);
+class ToggleButton extends React.Component {
+    constructor(props) {
+        super(props);
         this.state = {isToggleOn : true};
         this.toggle = this.toggle.bind(this);
     }
@@ -14,6 +15,7 @@ export default class ToggleButton extends React.Component {
     }
 
     render() {
+        if(!this.state.isToggleOn) throw new Error('error occured!');
         return (
             <>
                 <button onClick={this.toggle}> {this.state.isToggleOn? 'On' : 'Off'} </button>
@@ -21,3 +23,4 @@ export default class ToggleButton extends React.Component {
         )
     }
 }
+export default WithBoundaryHandling(ToggleButton)

@@ -8,12 +8,16 @@ import Calculator from './Calculator';
 import SignupDialog from './SignupDialog';
 import ErrorBoundary from './Error/ErrorBoundary';
 import ErrorBoundary2 from './Error/ErrorBoundary2';
+import Button from './HOC/Button';
+import Label from './HOC/Label';
 
 export default class LazyLoad extends React.Component { 
     render() {
         return (
             <>
                 <Clock />
+                <Button bgColor='#3323ee' color='#fff'>button</Button>
+                <Label>label</Label>
                 <ToggleButton />
                 <ErrorBoundary2>
                     <Login />

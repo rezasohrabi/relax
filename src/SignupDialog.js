@@ -1,7 +1,8 @@
 import React from 'react'
 import ThemeContext from './context/ThemeContext'
+import WithBoundaryHandling from './HOC/WithBoundaryHandling';
 
-export default class SignupDialog extends React.Component {
+ class SignupDialog extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -12,6 +13,7 @@ export default class SignupDialog extends React.Component {
     }
 
     render() {
+        if(this.state.login === 'error') throw new Error('error occured!');
         return (
             <Dialog 
             title='Wanna get informed?'
@@ -34,6 +36,7 @@ export default class SignupDialog extends React.Component {
     }
 
 }
+export default WithBoundaryHandling(SignupDialog)
 
 class Dialog extends React.Component {
     render() {
