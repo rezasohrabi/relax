@@ -8,6 +8,13 @@ export default class Clock extends React.Component {
         }
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        if(this.state.date !== nextState.date) {
+            return true;
+        }
+        return false;   
+    }
+
     componentDidMount() {
         this.timerId = setInterval(() => {
             this.update();

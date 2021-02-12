@@ -2,7 +2,7 @@ import { findByLabelText } from '@testing-library/react';
 import React from 'react'
 import ThemeContext from './context/ThemeContext';
 
-export default class Form extends React.Component {
+export default class Form extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
