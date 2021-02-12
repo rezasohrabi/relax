@@ -5,6 +5,8 @@ import ThemeContext from './context/ThemeContext'
 import AppTheme from './context/AppTheme'
 import Theme from './context/Theme';
 import RefWrapper from './refs/RefWrapper';
+import Parent from './portals/Parent';
+import PortalParent from './portals/PortalParent';
 const LazyLoad = React.lazy(()=> import('./LazyLoad'))
 
 const PRODUCTS = [
@@ -46,6 +48,8 @@ class App extends React.Component {
         </Suspense>
         <FilterableProductTable products={PRODUCTS} />
         <RefWrapper />
+        <Parent />
+        <PortalParent />
         </ThemeContext.Provider>
       </div>
     );
